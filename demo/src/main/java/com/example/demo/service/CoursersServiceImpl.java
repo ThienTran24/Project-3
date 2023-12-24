@@ -24,4 +24,9 @@ public class CoursersServiceImpl implements CoursersService {
 	public Optional<Courses> findById(Long id) {
 		return coursersRepository.findById(id);
 	}
+	
+	@Transactional(readOnly = true)
+	public Long countByCategory(String category) {
+		return coursersRepository.countByCategory(category);
+	}
 }

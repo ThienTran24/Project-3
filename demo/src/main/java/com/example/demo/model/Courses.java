@@ -18,7 +18,7 @@ public class Courses {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long courseId;
 	
-	@Column(name = "Cluster_id")
+	@Column(name = "cluster_id")
 	private Long clusterId;
 	
 	@Column(name = "name")
@@ -48,7 +48,7 @@ public class Courses {
 	@Column(name = "reviewurl")
 	private String reviewUrl;
 	
-	@Column(name = "Instructor_id")
+	@Column(name = "instructor_id")
 	private Long instructorId;
 	
 	@Column(name = "providername")

@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.example.demo.model.Lessons;
 import com.example.demo.repository.LessonsRepository;
 @Service
-public class LessonsServiceImpl {
+public class LessonsServiceImpl implements LessonsService {
 
 	@Autowired
 	LessonsRepository lessonRepository;

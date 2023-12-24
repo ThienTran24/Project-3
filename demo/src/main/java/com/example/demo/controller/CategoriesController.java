@@ -26,4 +26,8 @@ public class CategoriesController {
 		return categoriesService.getRandomCategories(Long.valueOf(3));
 	}
 	
+	@GetMapping("/getMaster")
+	public List<String> getMasterName(){
+		return categoriesService.getMasterCategoryName(Long.valueOf(10));
+	}
 }

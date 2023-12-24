@@ -12,4 +12,6 @@ public interface CoursersService {
 	public List<Courses> pageCourseByCategory(String category, Long page, Long numPer);
 	
 	public Optional<Courses> findById(Long id);
+	
+	public Long countByCategory(String category);
 }
