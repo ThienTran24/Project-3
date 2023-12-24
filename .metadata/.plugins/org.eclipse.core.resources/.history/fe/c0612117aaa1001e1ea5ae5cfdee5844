@@ -1,0 +1,8 @@
+package com.example.demo.model.dto;
+
+import jakarta.persistence.Column;
+
+public class CourseDTO {
+	
+
+}

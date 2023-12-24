@@ -1,0 +1,42 @@
+package com.example.demo.model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "keywords", schema = "public")
+public class Keywords {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long keywordId;
+	
+	@Column(name = "keyword")
+	private String keyword;
+
+	public Keywords() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Long getKeywordId() {
+		return keywordId;
+	}
+
+	public void setKeywordId(Long keywordId) {
+		this.keywordId = keywordId;
+	}
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+	
+	
+}

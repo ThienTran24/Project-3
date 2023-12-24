@@ -1,0 +1,25 @@
+package com.example.demo.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.demo.model.Categories;
+import com.example.demo.repository.CategoriesRepository;
+
+import jakarta.transaction.Transactional;
+
+public class CategoriesServiceImpl implements CategoriesService {
+
+	@Autowired
+	CategoriesRepository categoriesRepository;
+	
+	public List<Categories> getRandomCategories(Long num){
+		return categoriesRepository.getRandomCategories(num);
+	}
+	
+	@org.springframework.transaction.annotation.Transactional(readOnly = true)
+	public List<String> getMasterCategoryName(Long num){
+		return categoriesRepository.getMasterCategory(num);
+	}
+}

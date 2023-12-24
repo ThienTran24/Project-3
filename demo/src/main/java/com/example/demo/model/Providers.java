@@ -1,0 +1,64 @@
+package com.example.demo.model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "providers", schema = "public")
+public class Providers {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long providerId;
+	
+	@Column(name = "provider_name")
+	private String providerName;
+	
+	@Column(name = "description")
+	private String description;
+	
+	@Column(name = "provider_link")
+	private String providerUrl;
+
+	public Providers() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Long getProviderId() {
+		return providerId;
+	}
+
+	public void setProviderId(Long providerId) {
+		this.providerId = providerId;
+	}
+
+	public String getProviderName() {
+		return providerName;
+	}
+
+	public void setProviderName(String providerName) {
+		this.providerName = providerName;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getProviderUrl() {
+		return providerUrl;
+	}
+
+	public void setProviderUrl(String providerUrl) {
+		this.providerUrl = providerUrl;
+	}
+	
+}

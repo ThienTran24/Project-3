@@ -1,0 +1,25 @@
+package com.example.demo.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.model.Categories;
+
+@Repository
+public interface CategoriesRepository extends CrudRepository<Categories, Long>{
+
+	@Query(value = "select * from categories order by random() limit 3", nativeQuery = true)
+	public List<Categories> getRandomCategories();
+	
+	@Query(value = "select * from( "
+			+ "	select DISTINCT(parent_category) as parent_category from public.categories "
+			+ "	where parent_category NOT Like 'Uncategorized' "
+			+ "	union "
+			+ "	select DISTINCT(category) as parent_category from public.categories "
+			+ "	where parent_category Like 'Uncategorized' "
+			+ ") order by random()", nativeQuery = true)
+	public List<String> getMasterCategory();
+}

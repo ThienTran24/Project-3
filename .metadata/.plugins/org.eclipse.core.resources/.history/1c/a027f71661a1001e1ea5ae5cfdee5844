@@ -1,0 +1,166 @@
+package com.example.demo.model;
+
+import org.springframework.data.rest.core.annotation.RestResource;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "Courses")
+public class Courses {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long courseId;
+	
+	@Column(name = "Cluster_id")
+	private Long clusterId;
+	
+	@Column(name = "name")
+	private String courseName;
+	
+	@Column(name = "link")
+	private String link;
+	
+	@Column(name = "duration")
+	private String duration;
+	
+	@Column(name = "level")
+	private String level;
+	
+	@Column(name = "description")
+	private String description;
+	
+	@Column(name = "numenrolled")
+	private String numEnrolled;
+	
+	@Column(name = "numreviews")
+	private String numReviews;
+	
+	@Column(name = "Price")
+	private String price;
+	
+	@Column(name = "reviewurl")
+	private String reviewUrl;
+	
+	@Column(name = "Instructor_id")
+	private Long instructorId;
+	
+	@Column(name = "providername")
+	private Long providerName;
+	
+	@Column(name = "starts")
+	private String averageRatings;
+	
+	@Column(name = "mastercategories")
+	private String masterCategories;
+	
+	@Column(name = "source")
+	private String source;
+	
+	public Courses() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Long getCourseId() {
+		return courseId;
+	}
+
+	public void setCourseId(Long courseId) {
+		this.courseId = courseId;
+	}
+
+	public Long getClusterId() {
+		return clusterId;
+	}
+
+	public void setClusterId(Long clusterId) {
+		this.clusterId = clusterId;
+	}
+
+	public String getCourseName() {
+		return courseName;
+	}
+
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
+	}
+
+	public String getDuration() {
+		return duration;
+	}
+
+	public void setDuration(String duration) {
+		this.duration = duration;
+	}
+
+	public String getLevel() {
+		return level;
+	}
+
+	public void setLevel(String level) {
+		this.level = level;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Long getNumEnrolled() {
+		return numEnrolled;
+	}
+
+	public void setNumEnrolled(Long numEnrolled) {
+		this.numEnrolled = numEnrolled;
+	}
+
+	public Float getAverageRatings() {
+		return averageRatings;
+	}
+
+	public void setAverageRatings(Float averageRatings) {
+		this.averageRatings = averageRatings;
+	}
+
+	public Double getPrice() {
+		return this.price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public Long getInStructorId() {
+		return instructorId;
+	}
+
+	public void setInStructorId(Long inStructorId) {
+		this.instructorId = inStructorId;
+	}
+
+	public Long getProviderId() {
+		return providerId;
+	}
+
+	public void setProviderId(Long providerId) {
+		this.providerId = providerId;
+	}
+	
+	public String getLink() {
+		return link;
+	}
+
+	public void setLink(String link) {
+		this.link = link;
+	}
+}

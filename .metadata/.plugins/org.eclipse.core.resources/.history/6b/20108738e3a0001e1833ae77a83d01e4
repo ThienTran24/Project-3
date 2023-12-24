@@ -1,0 +1,10 @@
+package com.example.demo.model.mapper;
+
+import org.mapstruct.Mapper;
+
+import jakarta.persistence.MappedSuperclass;
+
+@Mapper
+public class CourseMapper {
+
+}

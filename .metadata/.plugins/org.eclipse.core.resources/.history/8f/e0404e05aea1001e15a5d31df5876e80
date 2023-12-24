@@ -1,0 +1,13 @@
+package com.example.demo.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.example.demo.model.Courses;
+
+public interface CoursersService {
+
+	public List<Courses> pageCourseByCategory(String category, Long page, Long numPer);
+	
+	public Optional<Courses> findById(Long id);
+}

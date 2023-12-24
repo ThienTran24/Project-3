@@ -1,0 +1,34 @@
+package com.example.demo.model.dto;
+
+import jakarta.persistence.Column;
+
+public class CourseDTO {
+
+	private String CourseId;
+	
+	private Long courseId;
+	
+	private Long clusterId;
+
+	private String courseName;
+
+	private String link;
+	
+	private String courseUrl;
+
+	private String duration;
+
+	private String level;
+
+	private String description;
+
+	private Long numEnrolled;
+
+	private Float averageRatings;
+
+	private Double price;
+
+	private Long instructorId;
+
+	private Long providerId;
+}

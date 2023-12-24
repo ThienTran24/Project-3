@@ -1,0 +1,23 @@
+package com.example.demo.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.demo.model.Courses;
+import com.example.demo.repository.CoursersRepository;
+
+public class CoursersServiceImpl implements CoursersService {
+	
+	@Autowired
+	CoursersRepository coursersRepository;
+	
+	public List<Courses> pageCourseByCategory(String category, Long page, Long numPer){
+		return coursersRepository.getCoursePagable(category, numPer*(page - 1), page);
+	}
+	
+	public Courses findById(Long id) {
+		return coursersRepository.findById(id));
+	}
+}

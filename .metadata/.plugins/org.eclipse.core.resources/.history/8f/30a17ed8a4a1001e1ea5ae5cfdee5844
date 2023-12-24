@@ -1,0 +1,18 @@
+package com.example.demo.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.demo.model.Lessons;
+import com.example.demo.repository.LessonsRepository;
+
+public class LessonsServiceImpl {
+
+	@Autowired
+	LessonsRepository lessonRepository;
+	
+	public List<Lessons> findAllByLink(String link){
+		return lessonRepository.findByLink(link);
+	}
+}

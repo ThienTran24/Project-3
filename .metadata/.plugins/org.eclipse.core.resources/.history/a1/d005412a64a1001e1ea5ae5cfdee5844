@@ -1,0 +1,21 @@
+package com.example.demo.repository;
+
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.model.Courses;
+
+@Repository
+public interface CoursersRepository extends CrudRepository<Courses, Long> {
+	
+	@Query(value = "select d from courses d where d.categories = :category "
+			+ "order by case when d.numReviews = 'NaN' then 1 else 0 end, "
+			+ "CAST(replace(d.numReviews, ',', '')*CAST(replace(d.starts, ',', '') DESC",
+			countQuery = "select count(d) from courses"
+			,nativeQuery = false)
+	public Page<Courses> getCoursePagable(Pageable pageable, @Param("category") String category);
+}
