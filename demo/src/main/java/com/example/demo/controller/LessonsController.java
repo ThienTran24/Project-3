@@ -13,18 +13,18 @@ import com.example.demo.model.Lessons;
 import com.example.demo.service.LessonsService;
 
 @RestController
-@RequestMapping("/lessons")
+@RequestMapping(value = "/lessons")
 public class LessonsController {
 
 	@Autowired
 	LessonsService lessonsService;
 	
-	@GetMapping("/{id}")
+	@GetMapping(value = "/{id}")
 	public Optional<Lessons> findById(@PathVariable("id") Long id){
 		return lessonsService.findById(id);
 	}
 	
-	@GetMapping("/link/{link}")
+	@GetMapping(value = "/link/{link}")
 	public List<Lessons> findByLink(String link){
 		return lessonsService.findAllByLink(link);
 	}

@@ -13,13 +13,13 @@ import com.example.demo.model.Courses;
 import com.example.demo.service.CoursersService;
 
 @RestController
-@RequestMapping("/course")
+@RequestMapping(value = "/course")
 public class CourseController {
 
 	@Autowired
 	CoursersService coursersService;
 	
-	@GetMapping("/{id}")
+	@GetMapping(value = "/{id}")
 	public Optional<Courses> findById(@PathVariable("id") Long id) {
 		if(id == null) {
 			return null;
@@ -28,13 +28,13 @@ public class CourseController {
 		}
 	}
 	
-	@GetMapping("/category={category}/{page}")
+	@GetMapping(value = "/category/{category}/{page}")
 	public List<Courses> getByCategoryPaging(@PathVariable("category") String category 
 			,@PathVariable("page") Long page){
 		return coursersService.pageCourseByCategory(category, page, Long.valueOf(5));
 	}
 	
-	@GetMapping("/countCategory/{category}")
+	@GetMapping(value = "/countCategory/{category}")
 	public Long countByCategory(@PathVariable("category") String category) {
 		return coursersService.countByCategory(category);
 	}

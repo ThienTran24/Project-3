@@ -11,13 +11,13 @@ import com.example.demo.model.Cluster;
 import com.example.demo.service.ClusterService;
 
 @RestController
-@RequestMapping("/cluster")
+@RequestMapping(value = "/cluster")
 public class ClusterController {
 
 	@Autowired
 	ClusterService clusterService;
 	
-	@GetMapping("/getAll")
+	@GetMapping(value = "/getAll")
 	public List<Cluster> getAll(){
 		return clusterService.getAll();
 	}

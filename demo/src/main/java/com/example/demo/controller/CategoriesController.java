@@ -14,19 +14,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
-@RequestMapping("/category")
-
+@RequestMapping(value = "/category")
 public class CategoriesController {
 	
 	@Autowired
 	CategoriesService categoriesService;
 	
-	@GetMapping("/random")
+	@GetMapping(value = "/random")
 	public List<Categories> getMethodName() {
 		return categoriesService.getRandomCategories(Long.valueOf(3));
 	}
 	
-	@GetMapping("/getMaster")
+	@GetMapping(value = "/getMaster")
 	public List<String> getMasterName(){
 		return categoriesService.getMasterCategoryName(Long.valueOf(10));
 	}
