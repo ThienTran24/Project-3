@@ -14,4 +14,11 @@ public interface CoursersService {
 	public Optional<Courses> findById(Long id);
 	
 	public Long countByCategory(String category);
+	
+	public List<Courses> findByCluster(String clusterId, Long courseId);
+	
+	public List<Courses> findByName(String name);
+	
+	public List<Courses> filter(String category, String name, Double start,
+			Double botDur, Double topDur, int page);
 }

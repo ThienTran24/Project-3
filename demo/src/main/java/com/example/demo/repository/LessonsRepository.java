@@ -12,6 +12,6 @@ import com.example.demo.model.Lessons;
 @Repository
 public interface LessonsRepository extends CrudRepository<Lessons, Long>{
 
-	@Query(value = "select d from Lessons d where d.link = :link", nativeQuery = false)
+	@Query(value = "select d from Lessons d where d.link Like %:link%", nativeQuery = false)
 	public List<Lessons> findByLink(@Param("link") String link);
 }
