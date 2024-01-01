@@ -25,6 +25,6 @@ public interface CoursersRepository extends CrudRepository<Courses, Long> {
 			, @Param("numRow") int numRow);
 	
 	@Query(value = "select count(d) from Courses d where "
-			+ "d.masterCategories Like :category ", nativeQuery = false)
+			+ "d.masterCategories Like :category  or d.categories Like :category ", nativeQuery = false)
 	public Long countByCategory(@Param("category") String category);
 }

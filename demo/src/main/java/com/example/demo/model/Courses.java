@@ -64,7 +64,9 @@ public class Courses {
 	@Column(name = "source")
 	private String source;
 	
-
+	@Column(name = "categories")
+	public String categories;
+	
 	public Courses() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -196,6 +198,14 @@ public class Courses {
 
 	public void setSource(String source) {
 		this.source = source;
+	}
+
+	public String getCategories() {
+		return categories;
+	}
+
+	public void setCategories(String categories) {
+		this.categories = categories;
 	}
 
 }
