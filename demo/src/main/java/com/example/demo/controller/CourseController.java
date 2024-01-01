@@ -30,8 +30,8 @@ public class CourseController {
 	
 	@GetMapping(value = "/category/{category}/{page}")
 	public List<Courses> getByCategoryPaging(@PathVariable("category") String category 
-			,@PathVariable("page") Long page){
-		return coursersService.pageCourseByCategory(category, page, Long.valueOf(5));
+			,@PathVariable("page") int page){
+		return coursersService.pageCourseByCategory(category, page, 5);
 	}
 	
 	@GetMapping(value = "/countCategory/{category}")

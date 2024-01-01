@@ -9,7 +9,7 @@ import com.example.demo.model.Courses;
 @Service
 public interface CoursersService {
 
-	public List<Courses> pageCourseByCategory(String category, Long page, Long numPer);
+	public List<Courses> pageCourseByCategory(String category, int page, int numPer);
 	
 	public Optional<Courses> findById(Long id);
 	

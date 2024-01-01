@@ -10,6 +10,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -20,12 +21,13 @@ public class CategoriesController {
 	@Autowired
 	CategoriesService categoriesService;
 	
-	@GetMapping(value = "/random")
+	
+	@RequestMapping(value = "/random", method = RequestMethod.GET)
 	public List<Categories> getMethodName() {
 		return categoriesService.getRandomCategories(Long.valueOf(3));
 	}
 	
-	@GetMapping(value = "/getMaster")
+	@RequestMapping(value = "/getMaster", method = RequestMethod.GET)
 	public List<String> getMasterName(){
 		return categoriesService.getMasterCategoryName(Long.valueOf(10));
 	}

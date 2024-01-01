@@ -16,8 +16,8 @@ public class CoursersServiceImpl implements CoursersService {
 	CoursersRepository coursersRepository;
 	
 	@Transactional(readOnly = true)
-	public List<Courses> pageCourseByCategory(String category, Long page, Long numPer){
-		return coursersRepository.getCoursePagable(category, numPer*(page - 1), page);
+	public List<Courses> pageCourseByCategory(String category, int page, int numPer){
+		return coursersRepository.getCoursePagable(category, numPer*(page - 1), numPer);
 	}
 	
 	@Transactional(readOnly = true)

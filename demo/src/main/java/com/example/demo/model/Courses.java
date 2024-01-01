@@ -14,12 +14,13 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "courses", schema = "public")
 public class Courses {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long courseId;
 	
-	@Column(name = "cluster_id")
-	private Long clusterId;
+	@Column(name = "cluster")
+	private String clusterId;
 	
 	@Column(name = "name")
 	private String courseName;
@@ -33,7 +34,7 @@ public class Courses {
 	@Column(name = "level")
 	private String level;
 	
-	@Column(name = "description")
+	@Column(name = "descriptions")
 	private String description;
 	
 	@Column(name = "numenrolled")
@@ -45,16 +46,16 @@ public class Courses {
 	@Column(name = "price")
 	private String price;
 	
-	@Column(name = "reviewurl")
+	@Column(name = "reviewsurl")
 	private String reviewUrl;
 	
-	@Column(name = "instructor_id")
-	private Long instructorId;
+	@Column(name = "instructorname")
+	private String instructorId;
 	
 	@Column(name = "providername")
-	private Long providerName;
+	private String providerName;
 	
-	@Column(name = "starts")
+	@Column(name = "stars")
 	private String averageRatings;
 	
 	@Column(name = "mastercategories")
@@ -63,6 +64,7 @@ public class Courses {
 	@Column(name = "source")
 	private String source;
 	
+
 	public Courses() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -76,11 +78,11 @@ public class Courses {
 		this.courseId = courseId;
 	}
 
-	public Long getClusterId() {
+	public String getClusterId() {
 		return clusterId;
 	}
 
-	public void setClusterId(Long clusterId) {
+	public void setClusterId(String clusterId) {
 		this.clusterId = clusterId;
 	}
 
@@ -156,19 +158,19 @@ public class Courses {
 		this.reviewUrl = reviewUrl;
 	}
 
-	public Long getInstructorId() {
+	public String getInstructorId() {
 		return instructorId;
 	}
 
-	public void setInstructorId(Long instructorId) {
+	public void setInstructorId(String instructorId) {
 		this.instructorId = instructorId;
 	}
 
-	public Long getProviderName() {
+	public String getProviderName() {
 		return providerName;
 	}
 
-	public void setProviderName(Long providerName) {
+	public void setProviderName(String providerName) {
 		this.providerName = providerName;
 	}
 

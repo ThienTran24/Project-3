@@ -13,6 +13,7 @@ import com.example.demo.model.Categories;
 @Repository
 public interface CategoriesRepository extends CrudRepository<Categories, Long>{
 
+	
 	@Query(value = "select * from categories order by random() limit :num", nativeQuery = true)
 	public List<Categories> getRandomCategories(@Param("num") Long num);
 	
