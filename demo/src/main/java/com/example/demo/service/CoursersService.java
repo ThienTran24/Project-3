@@ -21,4 +21,6 @@ public interface CoursersService {
 	
 	public List<Courses> filter(String category, String name, Double start,
 			Double botDur, Double topDur, int page);
+	
+	public Courses findByLink(String link);
 }

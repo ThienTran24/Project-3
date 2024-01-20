@@ -56,4 +56,9 @@ public class CourseController {
 			@RequestParam(name = "botDur", required = false) Double botDur, @RequestParam(name = "topDur", required = false) Double topDur,@PathVariable("page") int page){
 		return coursersService.filter(category, name, stars, botDur, topDur, page);
 	}
+	
+	@GetMapping(value = "/link")
+	public Courses findByLink(@RequestParam(name = "url", required = true) String link) {
+		return coursersService.findByLink(link);
+	}
 }

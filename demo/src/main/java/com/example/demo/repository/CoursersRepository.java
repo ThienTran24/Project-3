@@ -24,6 +24,10 @@ public interface CoursersRepository extends CrudRepository<Courses, Long> {
 	public List<Courses> getCoursePagable(@Param("category") String category, @Param("nextRow") int nextRow
 			, @Param("numRow") int numRow);
 	
+	@Query(value = "select d from Courses d where "
+			+ "d.link Like %:link% Order by d.courseId limit 1", nativeQuery = false)
+	public Courses findByLink(@Param("link") String link);
+	
 	@Query(value = "select count(d) from Courses d where "
 			+ "d.masterCategories Like :category  or d.categories Like :category ", nativeQuery = false)
 	public Long countByCategory(@Param("category") String category);

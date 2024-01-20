@@ -53,4 +53,10 @@ public class CoursersServiceImpl implements CoursersService {
 			return coursersRepository.getCourseFilter(category, name, stars, botDur, topDur, 20*(page - 1), 20);
 		}
 	}
+	
+	@Transactional(readOnly = true)
+	public Courses findByLink(String link) {
+		return coursersRepository.findByLink(link);
+	}
+	
 }
