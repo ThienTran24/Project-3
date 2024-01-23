@@ -41,8 +41,8 @@ public interface CoursersRepository extends CrudRepository<Courses, Long> {
 	public List<Courses> findByName(@Param("name") String name);
 	
 	@Query(value = "select d.* from public.courses d where ((COALESCE(:category, '') = '') or (d.mastercategories Like :category or d.categories Like :category)) "
-			+ "and ((COALESCE(:name, '') = '') or (d.name Like ('%' || :name || '%'))) and ((:stars is null) or (CAST(d.stars As Decimal) >= :stars)) "
-			+ "and (((CAST(d.duration As Decimal) >= :botDur) and (CAST(d.duration As Decimal) <= :topDur)) or 1=1) "
+			+ "and ((COALESCE(:name, '') = '') or (upper(d.name) Like ('%' || upper(:name) || '%'))) and ((:stars is null) or (CAST(d.stars As Decimal) >= :stars)) "
+			+ "and (((CAST(d.duration As Decimal) >= :botDur) and (CAST(d.duration As Decimal) <= :topDur))) "
 			+ "order by case when d.numReviews Like 'NaN' then 1 else 0 end, "
 			+ "CAST(replace(d.numReviews, ',', '') As Decimal)*CAST(replace(d.stars, ',', '') As Decimal) DESC "
 			+ "OFFSET :nextRow ROWS "
@@ -53,7 +53,7 @@ public interface CoursersRepository extends CrudRepository<Courses, Long> {
 			,@Param("nextRow") int nextRow, @Param("numRow") int numRow);
 	
 	@Query(value = "select d.* from public.courses d where ((COALESCE(:category, '') = '') or  (d.mastercategories Like :category or d.categories Like :category)) "
-			+ "and ((COALESCE(:name, '') = '') or (d.name Like ('%' || :name || '%'))) and ((:stars is null) or (CAST(d.stars As Decimal) >= :stars)) "
+			+ "and ((COALESCE(:name, '') = '') or (upper(d.name) Like ('%' || upper(:name) || '%'))) and ((:stars is null) or (CAST(d.stars As Decimal) >= :stars)) "
 			+ "and (:topDur is null or (CAST(d.duration As Decimal) >= :topDur)) "
 			+ "order by case when d.numReviews Like 'NaN' then 1 else 0 end, "
 			+ "CAST(replace(d.numReviews, ',', '') As Decimal)*CAST(replace(d.stars, ',', '') As Decimal) DESC "
@@ -64,7 +64,7 @@ public interface CoursersRepository extends CrudRepository<Courses, Long> {
 			,@Param("nextRow") int nextRow, @Param("numRow") int numRow);
 	
 	@Query(value = "select d.* from public.courses d where ((COALESCE(:category, '') = '') or (d.mastercategories Like :category or d.categories Like :category)) "
-			+ "and ((COALESCE(:name, '') = '') or (d.name Like ('%' || :name || '%'))) and ((:stars is null) or (CAST(d.stars As Decimal) >= :stars)) "
+			+ "and ((COALESCE(:name, '') = '') or (upper(d.name) Like ('%' || upper(:name) || '%'))) and ((:stars is null) or (CAST(d.stars As Decimal) >= :stars)) "
 			+ "and ((CAST(d.duration As Decimal) <= :botDur)) "
 			+ "order by case when d.numReviews Like 'NaN' then 1 else 0 end, "
 			+ "CAST(replace(d.numReviews, ',', '') As Decimal)*CAST(replace(d.stars, ',', '') As Decimal) DESC "
